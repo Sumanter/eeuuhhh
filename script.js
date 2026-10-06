@@ -24,8 +24,9 @@ const windResult = document.getElementById("wind-result");
 async function getWeather(){
     const url = "https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current=temperature_2m,wind_speed_10m";
     weatherResult.textContent = "Загрузка";
+    windResult.textContent = "";
     try {
-        const response = await fetch(url);
+        const response = await fetch(url, {cache: "no-store"});
         if (!response.ok) {
             throw new Error("Ошибка сервера: " + response.status);
         }
@@ -34,7 +35,7 @@ async function getWeather(){
         windResult.textContent = "Ветер: " + data.current.wind_speed_10m + " км/ч";
     } catch (error) {
         weatherResult.textContent = "Не удалось получить погоду:(";
-        windResult.textContent = " ";
+        windResult.textContent = "";
         console.error(error);
     }
 }

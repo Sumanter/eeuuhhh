@@ -18,6 +18,15 @@ const savedTheme = localStorage.getItem("theme");
 if (savedTheme === "light") {
     document.body.classList.add("light");
 }
+const weatherButton = document.getElementById("weather-btn");
+const weatherResult = document.getElementById("weather-result");
+async function getWeather(){
+    const url = "https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current=temperature_2m,wind_speed_10m";
+    const response = await fetch(url);
+    const data = await response.json();
+    weatherResult.textContent = "Температура: " + data.current.temperature_2m + " °C";
+}
+weatherButton.addEventListener("click", getWeather);
 const noteInput = document.getElementById("note-input");
 const addButton = document.getElementById("add-btn");
 const noteList = document.getElementById("note-list");

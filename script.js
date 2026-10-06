@@ -20,11 +20,22 @@ if (savedTheme === "light") {
 }
 const weatherButton = document.getElementById("weather-btn");
 const weatherResult = document.getElementById("weather-result");
+const windResult = document.getElementById("wind-result");
 async function getWeather(){
     const url = "https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current=temperature_2m,wind_speed_10m";
-    const response = await fetch(url);
-    const data = await response.json();
-    weatherResult.textContent = "Температура: " + data.current.temperature_2m + " °C";
+    weatherResult.textContent = "Загрузка";
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error("Ошибка сервера: " + response.status);
+        }
+        const data = await response.json();
+        weatherResult.textContent = "Температура: " + data.current.temperature_2m + " °C";
+        windResult.textContent = "Ветер: " + data.current.wind_speed_10m + " км/ч";
+    } catch (error) {
+        weatherResult.textContent = "Не удалось получить погоду:(";
+        console.error(error);
+    }
 }
 weatherButton.addEventListener("click", getWeather);
 const noteInput = document.getElementById("note-input");

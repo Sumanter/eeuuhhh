@@ -34,6 +34,7 @@ async function getWeather(){
         windResult.textContent = "Ветер: " + data.current.wind_speed_10m + " км/ч";
     } catch (error) {
         weatherResult.textContent = "Не удалось получить погоду:(";
+        windResult.textContent = " ";
         console.error(error);
     }
 }

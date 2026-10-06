@@ -1,0 +1,95 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1e1e2f;
+    color:aliceblue;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 40px;
+}
+h1{
+    color: aqua;
+    text-align: center;
+}
+li{
+    margin-bottom: 8px;
+}
+a{
+    color: lightblue;
+}
+a:hover{
+    color: violet;
+}
+.card{
+    background-color: #2b2b40;
+    padding: 20px;
+    transition: transform 0.2s;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+}
+nav{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.card:hover{
+    transform: translateY(-4px);
+}
+body.light{
+    background-color:aliceblue;
+    color:#1e1e2f;
+}
+body.light .card {
+    background-color: azure;
+    box-shadow: 0 4px 10px black;
+}
+body.light h1{
+    color: darkslategrey;
+}
+body.light a{
+    color: darkblue;
+}
+body.light a:hover{
+    color: rgb(0, 99, 156);
+}
+input{
+    font-family: inherit;
+    background-color: azure;
+    color: #1e1e2f;
+    border: 1px solid aliceblue;
+    padding: 8px 14px;
+    border-radius: 8px;
+}
+button{
+    font-family: inherit;
+    background-color: #3b3bac;
+    color: aliceblue;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+button:hover{
+    background-color: rgb(167, 42, 167);
+}
+body.light input{
+    background-color:white ;
+    color:black ;
+    border: 1px solid #99a;
+}
+body.light button{
+    background-color: #2a6fdb;
+    color: aliceblue;
+}
+body.light button:hover{
+    background-color:#1f56b0 ;
+}
+@media(max-width:600px) {
+    body{
+        padding: 15px;
+    }
+    nav{
+        flex-direction: column;
+    }
+}

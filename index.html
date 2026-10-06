@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title>Моя первая страница</title>
+        <link rel="stylesheet" href="style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="script.js" defer></script>
+    </head>
+    <body>
+        <nav>
+            <a href="#goals">Цели</a>
+            <a href="#skills">Умения</a>
+        </nav>
+        <h1>Учусь я</h1>
+        <p>Программированию с помощью нейросетей. Пользуюсь Клодом.</p>
+        <div class="card" id="goals">
+            <h2>Мои цели:</h2>
+            <ul>
+                <li>Достичь junior уровня?</li>
+                <li>Написать интерактивные сайты?</li>
+                <li>Попросту узнать больше о программировании?</li>
+            </ul>
+        </div>
+        <div class="card" id="skills">
+            <h2>Обобщая мои умения</h2>
+            <ul>
+                <li>Создавать собственную, хотя и полупустую страницу в браузере</li>
+                <li>Менять цвета фона и текста с помощью css</li>
+                <li>Менять позиционирование текста с помощью css</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h2>Мои заметки</h2>
+            <input type="text" id="note-input" placeholder="Что хотите записать?">
+            <button id="add-btn">Добавить</button>
+            <ul id="note-list"></ul>
+        </div>
+        <button id="btn">Нажми меня</button>
+        <button id="theme-btn">Сменить тему</button>
+        <p id="message"></p>
+        <a href="https://irinabot.ru/" target="_blank" rel="noopener">это иринка</a>
+    </body>
+</html>

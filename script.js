@@ -55,12 +55,24 @@ function loadNotes(){
 }
 function renderNotes(){
     noteList.innerHTML="";
-    notes.forEach(function(text, index){
+    notes.forEach(function(note, index){
         const newItem = document.createElement("li");
-        newItem.textContent = text;
+        const newbtn = document.createElement("button");
+        newItem.textContent = note.text; // textContent стирает все внутри, поэтому сначала текст а потом кнопка (кнопку тоже стирает, ага)
+        if (note.done === true) {
+            newItem.classList.add("done");
+            newbtn.textContent = "✓";
+        }
+        newItem.prepend(newbtn);
         noteList.appendChild(newItem);
         newItem.addEventListener("click", function(){
             notes.splice(index, 1);
+            saveNotes();
+            renderNotes();
+        });
+        newbtn.addEventListener("click", function(event){
+            event.stopPropagation();
+            note.done = !note.done;
             saveNotes();
             renderNotes();
         });
@@ -69,9 +81,10 @@ function renderNotes(){
 function addNote() {
     const text = noteInput.value.trim();
     if (text === "") {
-        return;
+        return; //Команда "отменить функцию" (весь код ниже в пределах этой функции)
     }
-    notes.push(text);
+    const note = {text: text, done: false}
+    notes.push(note);
     saveNotes();
     renderNotes();
     noteInput.value = "";
